@@ -164,10 +164,12 @@
         self.currentPoint = point;
         
         UIButton *button = [self buttonContainsPoint:point];
-        if (button) {
+        if (button && ![self.selectedButtons containsObject:button]) {
             [self.selectedButtons addObject:button];
             button.selected = YES;
         }
+        
+        [self setNeedsDisplay];
     }
 }
 
@@ -179,7 +181,7 @@
         self.currentPoint = point;
         
         UIButton *button = [self buttonContainsPoint:point];
-        if (button) {
+        if (button && ![self.selectedButtons containsObject:button]) {
             [self.selectedButtons addObject:button];
             button.selected = YES;
         }
@@ -220,7 +222,7 @@
     
     for (UIButton *btn in self.buttons) {
         CGRect frame = btn.frame;
-        if (CGRectContainsPoint(frame, point) && ![self.selectedButtons containsObject:btn]) {
+        if (CGRectContainsPoint(frame, point)) {
             button = btn;
             break;
         }
