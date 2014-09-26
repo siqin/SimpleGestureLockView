@@ -14,6 +14,9 @@
 		A1A6860F19D5027700F9C2AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1A6860E19D5027700F9C2AD /* Images.xcassets */; };
 		A1A6861219D5027700F9C2AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A6861019D5027700F9C2AD /* LaunchScreen.xib */; };
 		A1A6861E19D5027700F9C2AD /* SimpleGestureLockViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A6861D19D5027700F9C2AD /* SimpleGestureLockViewTests.m */; };
+		A1A6862A19D502E100F9C2AD /* SimpleGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A6862919D502E100F9C2AD /* SimpleGestureLockView.m */; };
+		A1A6862D19D5034A00F9C2AD /* gestureLockPoint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A6862B19D5034A00F9C2AD /* gestureLockPoint@2x.png */; };
+		A1A6862E19D5034A00F9C2AD /* gestureLockPointHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A6862C19D5034A00F9C2AD /* gestureLockPointHighlighted@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		A1A6861719D5027700F9C2AD /* SimpleGestureLockViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleGestureLockViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A6861C19D5027700F9C2AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1A6861D19D5027700F9C2AD /* SimpleGestureLockViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleGestureLockViewTests.m; sourceTree = "<group>"; };
+		A1A6862819D502E100F9C2AD /* SimpleGestureLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleGestureLockView.h; path = GestureLockView/SimpleGestureLockView.h; sourceTree = "<group>"; };
+		A1A6862919D502E100F9C2AD /* SimpleGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleGestureLockView.m; path = GestureLockView/SimpleGestureLockView.m; sourceTree = "<group>"; };
+		A1A6862B19D5034A00F9C2AD /* gestureLockPoint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gestureLockPoint@2x.png"; path = "GestureLockView/gestureLockPoint@2x.png"; sourceTree = "<group>"; };
+		A1A6862C19D5034A00F9C2AD /* gestureLockPointHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gestureLockPointHighlighted@2x.png"; path = "GestureLockView/gestureLockPointHighlighted@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +88,7 @@
 		A1A6860019D5027700F9C2AD /* SimpleGestureLockView */ = {
 			isa = PBXGroup;
 			children = (
+				A1A6862719D5028C00F9C2AD /* GestureLockView */,
 				A1A6860519D5027700F9C2AD /* AppDelegate.h */,
 				A1A6860619D5027700F9C2AD /* AppDelegate.m */,
 				A1A6860819D5027700F9C2AD /* ViewController.h */,
@@ -117,6 +125,17 @@
 				A1A6861C19D5027700F9C2AD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1A6862719D5028C00F9C2AD /* GestureLockView */ = {
+			isa = PBXGroup;
+			children = (
+				A1A6862B19D5034A00F9C2AD /* gestureLockPoint@2x.png */,
+				A1A6862C19D5034A00F9C2AD /* gestureLockPointHighlighted@2x.png */,
+				A1A6862819D502E100F9C2AD /* SimpleGestureLockView.h */,
+				A1A6862919D502E100F9C2AD /* SimpleGestureLockView.m */,
+			);
+			name = GestureLockView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +220,8 @@
 			files = (
 				A1A6860D19D5027700F9C2AD /* Main.storyboard in Resources */,
 				A1A6861219D5027700F9C2AD /* LaunchScreen.xib in Resources */,
+				A1A6862D19D5034A00F9C2AD /* gestureLockPoint@2x.png in Resources */,
+				A1A6862E19D5034A00F9C2AD /* gestureLockPointHighlighted@2x.png in Resources */,
 				A1A6860F19D5027700F9C2AD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +243,7 @@
 				A1A6860A19D5027700F9C2AD /* ViewController.m in Sources */,
 				A1A6860719D5027700F9C2AD /* AppDelegate.m in Sources */,
 				A1A6860419D5027700F9C2AD /* main.m in Sources */,
+				A1A6862A19D502E100F9C2AD /* SimpleGestureLockView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

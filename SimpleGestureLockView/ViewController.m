@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SimpleGestureLockView.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    SimpleGestureLockView *lockView = [[SimpleGestureLockView alloc] init];
+    lockView.frame = self.view.bounds;
+    [self.view addSubview:lockView];
 }
 
 - (void)didReceiveMemoryWarning {
