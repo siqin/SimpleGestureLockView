@@ -48,6 +48,8 @@
     NSUInteger buttonsCount = self.numberOfRows * self.numberOfColumns;
     if (!self.buttons) self.buttons = [[NSMutableArray alloc] initWithCapacity:buttonsCount];
     if (!self.selectedButtons) self.selectedButtons = [[NSMutableArray alloc] initWithCapacity:buttonsCount];
+    
+    self.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - 
@@ -101,7 +103,7 @@
     [super drawRect:rect];
     
     [self drawWithBezierPath];
-    //[self drawOnCurrentGraphicsContext];
+    [self drawOnCurrentGraphicsContext];
 }
 
 - (void)drawWithBezierPath
@@ -116,13 +118,16 @@
             } else {
                 UIButton *button = [self.selectedButtons objectAtIndex:i];
                 [bezierPath addLineToPoint:button.center];
+                [bezierPath moveToPoint:button.center];
             }
         }
         
         [bezierPath addLineToPoint:self.currentPoint];
+        
         [bezierPath setLineWidth:5.0f];
         [bezierPath setLineJoinStyle:kCGLineJoinRound];
         [[UIColor yellowColor] setStroke];
+        
         [bezierPath stroke];
     }
 }
@@ -131,7 +136,7 @@
 {
     if (self.selectedButtons.count > 0) {
         CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextClearRect(context, self.bounds);
+        //CGContextClearRect(context, self.bounds);
         
         for (NSUInteger i = 0; i < self.selectedButtons.count; ++i) {
             UIButton *button = self.selectedButtons[i];
@@ -159,35 +164,13 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    if (touch) {
-        CGPoint point = [touch locationInView:self];
-        self.currentPoint = point;
-        
-        UIButton *button = [self buttonContainsPoint:point];
-        if (button && ![self.selectedButtons containsObject:button]) {
-            [self.selectedButtons addObject:button];
-            button.selected = YES;
-        }
-        
-        [self setNeedsDisplay];
-    }
+    [self onTouch:touch];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    if (touch) {
-        CGPoint point = [touch locationInView:self];
-        self.currentPoint = point;
-        
-        UIButton *button = [self buttonContainsPoint:point];
-        if (button && ![self.selectedButtons containsObject:button]) {
-            [self.selectedButtons addObject:button];
-            button.selected = YES;
-        }
-        
-        [self setNeedsDisplay];
-    }
+    [self onTouch:touch];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -200,7 +183,23 @@
     [self onTouchCancel];
 }
 
-#pragma mark - 
+#pragma mark -
+
+- (void)onTouch:(UITouch *)touch
+{
+    if (touch) {
+        CGPoint point = [touch locationInView:self];
+        self.currentPoint = point;
+        
+        UIButton *button = [self buttonContainsPoint:point];
+        if (button && ![self.selectedButtons containsObject:button]) {
+            [self.selectedButtons addObject:button];
+            button.selected = YES;
+        }
+        
+        [self setNeedsDisplay];
+    }
+}
 
 - (void)onTouchCancel
 {
